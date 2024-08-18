@@ -127,13 +127,12 @@ let
       file = "lapce-plugin-${author}-${name}-${version}.tar.zstd";
     in {
       name = file;
-      unpackPhase = "true";
+      phases = [ "installPhase" ];
+      nativeBuildInputs = [ pkgs.curl pkgs.cacert ];
       outputHashAlgo = "sha256";
       outputHashMode = "flat";
       outputHash = hash;
-      nativeBuildInputs = [ pkgs.curl pkgs.cacert ];
-      builder = builtins.toFile "download-lapce-plugin.sh" ''
-        source "$stdenv/setup"
+      installPhase = ''
         url="$(curl ${url})"
         curl -L "$url" -o "$out"
       '';
@@ -141,8 +140,8 @@ let
   fetchPlugin = { author, name, version, hash }@args:
     pkgs.stdenvNoCC.mkDerivation {
       name = "lapce-plugin-${author}-${name}-${version}";
+      phases = [ "installPhase" ];
       src = fetchPluginTarball args;
-      unpackPhase = "true";
       nativeBuildInputs = [ pkgs.zstd ];
       installPhase = ''
         mkdir -p $out
