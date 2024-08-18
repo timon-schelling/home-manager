@@ -529,6 +529,13 @@
     githubId = 1545895;
     name = "Nicola Squartini";
   };
+  timon-schelling = {
+    github = "timon-schelling";
+    githubId = 36821505;
+    name = "Timon Schelling";
+    email = "me@timon.zip";
+    matrix = "@timon:beeper.com";
+  };
   toastal = {
     email = "toastal+nix@posteo.net";
     matrix = "@toastal:matrix.org";
