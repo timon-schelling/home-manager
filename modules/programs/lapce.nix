@@ -127,22 +127,22 @@ let
       file = "lapce-plugin-${author}-${name}-${version}.tar.zstd";
     in {
       name = file;
-      phases = [ "installPhase" ];
       nativeBuildInputs = [ pkgs.curl pkgs.cacert ];
-      outputHashAlgo = "sha256";
-      outputHashMode = "flat";
-      outputHash = hash;
+      phases = [ "installPhase" ];
       installPhase = ''
         url="$(curl ${url})"
         curl -L "$url" -o "$out"
       '';
+      outputHashAlgo = "sha256";
+      outputHashMode = "flat";
+      outputHash = hash;
     });
   fetchPlugin = { author, name, version, hash }@args:
     pkgs.stdenvNoCC.mkDerivation {
       name = "lapce-plugin-${author}-${name}-${version}";
-      phases = [ "installPhase" ];
       src = fetchPluginTarball args;
       nativeBuildInputs = [ pkgs.zstd ];
+      phases = [ "installPhase" ];
       installPhase = ''
         mkdir -p $out
         tar -C $out -xvf $src
