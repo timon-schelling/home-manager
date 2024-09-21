@@ -20116,6 +20116,34 @@ path</p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-programs.fish.preferAbbrs"></a><a class="term" href="options.xhtml#opt-programs.fish.preferAbbrs"><code class="option">programs.fish.preferAbbrs</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>If enabled, abbreviations will be preferred over aliases when
+other modules define aliases for fish.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">false</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fish.nix" target="_top">
+&lt;home-manager/modules/programs/fish.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-programs.fish.shellAbbrs"></a><a class="term" href="options.xhtml#opt-programs.fish.shellAbbrs"><code class="option">programs.fish.shellAbbrs</code>
   </a>
  </span>
@@ -21551,6 +21579,64 @@ attribute set of (string or boolean or signed integer or attribute set of (strin
   features = &quot;decorations&quot;;
   whitespace-error-style = &quot;22 reverse&quot;;
 }
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/git.nix" target="_top">
+&lt;home-manager/modules/programs/git.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.git.diff-highlight.enable"></a><a class="term" href="options.xhtml#opt-programs.git.diff-highlight.enable"><code class="option">programs.git.diff-highlight.enable</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Enable the contrib <span class="command"><strong>diff-highlight</strong></span> syntax highlighter.
+See <a class="link" href="https://github.com/git/git/blob/master/contrib/diff-highlight/README"  target="_top">https://github.com/git/git/blob/master/contrib/diff-highlight/README</a>,</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">false</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/git.nix" target="_top">
+&lt;home-manager/modules/programs/git.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.git.diff-highlight.pagerOpts"></a><a class="term" href="options.xhtml#opt-programs.git.diff-highlight.pagerOpts"><code class="option">programs.git.diff-highlight.pagerOpts</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Arguments to be passed to <span class="command"><strong>less</strong></span>.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of string</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">[ ]</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting">[
+  &quot;--tabs=4&quot;
+  &quot;-RFX&quot;
+]
 </code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
@@ -30745,15 +30831,15 @@ string</p>
 </dd>
 <dt>
  <span class="term">
- <a id="opt-programs.kitty.theme"></a><a class="term" href="options.xhtml#opt-programs.kitty.theme"><code class="option">programs.kitty.theme</code>
+ <a id="opt-programs.kitty.themeFile"></a><a class="term" href="options.xhtml#opt-programs.kitty.themeFile"><code class="option">programs.kitty.themeFile</code>
   </a>
  </span>
 </dt>
 <dd>
-<p>Apply a Kitty color theme. This option takes the friendly name of
-any theme given by the command <span class="command"><strong>kitty +kitten themes</strong></span>.
-See <a class="link" href="https://github.com/kovidgoyal/kitty-themes"  target="_top">https://github.com/kovidgoyal/kitty-themes</a>
-for more details.</p>
+<p>Apply a Kitty color theme. This option takes the file name of a theme
+in <code class="literal">kitty-themes</code>, without the <code class="literal">.conf</code> suffix. See
+<a class="link" href="https://github.com/kovidgoyal/kitty-themes/tree/master/themes"  target="_top">https://github.com/kovidgoyal/kitty-themes/tree/master/themes</a> for a
+list of themes.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 null or string</p>
@@ -30762,7 +30848,7 @@ null or string</p>
 <code class="literal">null</code></p>
 
 <p><span class="emphasis"><em>Example:</em></span>
-<code class="literal">&quot;Space Gray Eighties&quot;</code></p>
+<code class="literal">&quot;SpaceGray_Eighties&quot;</code></p>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
@@ -48057,13 +48143,23 @@ string <span class="emphasis"><em>(read only)</em></span></p>
 <code class="filename">user.js</code>.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-attribute set of (boolean or signed integer or string)</p>
+Thunderbird preference (int, bool, string, and also attrs, list, float as a JSON string)</p>
 
 <p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">{ }</code></p>
 
 <p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting">{
   &quot;mail.spellcheck.inline&quot; = false;
+  &quot;mailnews.database.global.views.global.columns&quot; = {
+    selectCol = {
+      visible = false;
+      ordinal = 1;
+    };
+    threadCol = {
+      visible = true;
+      ordinal = 2;
+    };
+  };
 }
 
 </code></pre>
@@ -48177,7 +48273,7 @@ boolean</p>
 all profiles.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-attribute set of (boolean or signed integer or string)</p>
+Thunderbird preference (int, bool, string, and also attrs, list, float as a JSON string)</p>
 
 <p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">{ }</code></p>
@@ -53543,7 +53639,7 @@ list of string</p>
 <code class="literal">[ ]</code></p>
 
 <p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting">[
-  &quot;--no-aliases&quot;
+  &quot;--no-cmd&quot;
 ]
 </code></pre>
 
@@ -67984,6 +68080,36 @@ boolean</p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-services.poweralertd.extraArgs"></a><a class="term" href="options.xhtml#opt-services.poweralertd.extraArgs"><code class="option">services.poweralertd.extraArgs</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Extra command line arguments to pass to poweralertd.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of string</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">[ ]</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting">[
+  &quot;-s&quot;
+  &quot;-S&quot;
+]
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/poweralertd.nix" target="_top">
+&lt;home-manager/modules/services/poweralertd.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-services.psd.enable"></a><a class="term" href="options.xhtml#opt-services.psd.enable"><code class="option">services.psd.enable</code>
   </a>
  </span>
@@ -69863,8 +69989,10 @@ one of “before-sleep”, “after-resume”, “lock”, “unlock”</p>
 <p><span class="emphasis"><em>Type:</em></span>
 list of string</p>
 
-<p><span class="emphasis"><em>Default:</em></span>
-<code class="literal">[ ]</code></p>
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting">[
+  &quot;-w&quot;
+]
+</code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
@@ -70086,7 +70214,7 @@ JSON value</p>
   notification-inline-replies = false;
   notification-icon-size = 64;
   notification-body-image-height = 100;
-  notification-body-image-width = 200
+  notification-body-image-width = 200;
 };
 
 </code></pre>
@@ -76914,7 +77042,8 @@ boolean</p>
 ‘wrapperFeatures’, ‘extraSessionCommands’, and ‘extraOptions’.
 Set to <code class="literal">null</code> to not add any Sway package to your
 path. This should be done if you want to use the NixOS Sway
-module to install Sway.</p>
+module to install Sway. Beware setting to <code class="literal">null</code> will also disable
+reloading Sway when new config is activated.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 null or package</p>
@@ -76938,13 +77067,13 @@ null or package</p>
  </span>
 </dt>
 <dd>
-<p>If enabled (the default), validates the generated config file.</p>
+<p>If enabled, validates the generated config file.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 boolean</p>
 
 <p><span class="emphasis"><em>Default:</em></span>
-<code class="literal">true</code></p>
+<code class="literal">wayland.windowManager.sway.package != null</code></p>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
