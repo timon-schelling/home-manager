@@ -31,6 +31,7 @@ let
     ./misc/gtk.nix
     ./misc/lib.nix
     ./misc/news.nix
+    ./misc/nixgl.nix
     ./misc/numlock.nix
     ./misc/pam.nix
     ./misc/qt.nix
@@ -76,7 +77,9 @@ let
     ./programs/bun.nix
     ./programs/carapace.nix
     ./programs/cava.nix
+    ./programs/cavalier.nix
     ./programs/chromium.nix
+    ./programs/cmus.nix
     ./programs/command-not-found/command-not-found.nix
     ./programs/comodoro.nix
     ./programs/darcs.nix
@@ -92,6 +95,7 @@ let
     ./programs/feh.nix
     ./programs/firefox.nix
     ./programs/fish.nix
+    ./programs/floorp.nix
     ./programs/foot.nix
     ./programs/freetube.nix
     ./programs/fuzzel.nix
@@ -100,6 +104,7 @@ let
     ./programs/getmail.nix
     ./programs/gh.nix
     ./programs/gh-dash.nix
+    ./programs/ghostty.nix
     ./programs/git-cliff.nix
     ./programs/git-credential-oauth.nix
     ./programs/git.nix
@@ -140,6 +145,7 @@ let
     ./programs/khard.nix
     ./programs/kitty.nix
     ./programs/kodi.nix
+    ./programs/kubecolor.nix
     ./programs/lapce.nix
     ./programs/lazygit.nix
     ./programs/ledger.nix
@@ -171,8 +177,10 @@ let
     ./programs/neovide.nix
     ./programs/neovim.nix
     ./programs/newsboat.nix
+    ./programs/nh.nix
     ./programs/nheko.nix
     ./programs/nix-index.nix
+    ./programs/nix-your-shell.nix
     ./programs/nnn.nix
     ./programs/noti.nix
     ./programs/notmuch.nix
@@ -186,6 +194,7 @@ let
     ./programs/pandoc.nix
     ./programs/papis.nix
     ./programs/password-store.nix
+    ./programs/pay-respects.nix
     ./programs/pazi.nix
     ./programs/pet.nix
     ./programs/pidgin.nix
@@ -238,12 +247,14 @@ let
     ./programs/tmate.nix
     ./programs/tmux.nix
     ./programs/tofi.nix
+    ./programs/todoman.nix
     ./programs/topgrade.nix
     ./programs/translate-shell.nix
     ./programs/urxvt.nix
     ./programs/vdirsyncer.nix
-    ./programs/vim.nix
+    ./programs/vifm.nix
     ./programs/vim-vint.nix
+    ./programs/vim.nix
     ./programs/vscode.nix
     ./programs/vscode/haskell.nix
     ./programs/pywal.nix
@@ -261,6 +272,7 @@ let
     ./programs/yt-dlp.nix
     ./programs/z-lua.nix
     ./programs/zathura.nix
+    ./programs/zed-editor.nix
     ./programs/zellij.nix
     ./programs/zk.nix
     ./programs/zoxide.nix
@@ -335,6 +347,7 @@ let
     ./services/nextcloud-client.nix
     ./services/nix-gc.nix
     ./services/notify-osd.nix
+    ./services/ollama.nix
     ./services/opensnitch-ui.nix
     ./services/osmscout-server.nix
     ./services/owncloud-client.nix
@@ -347,6 +360,7 @@ let
     ./services/plan9port.nix
     ./services/playerctld.nix
     ./services/plex-mpv-shim.nix
+    ./services/podman-linux
     ./services/polybar.nix
     ./services/poweralertd.nix
     ./services/psd.nix
@@ -362,6 +376,7 @@ let
     ./services/screen-locker.nix
     ./services/sctd.nix
     ./services/signaturepdf.nix
+    ./services/snixembed.nix
     ./services/spotifyd.nix
     ./services/ssh-agent.nix
     ./services/stalonetray.nix
@@ -393,6 +408,7 @@ let
     ./services/window-managers/i3-sway/swaynag.nix
     ./services/window-managers/river.nix
     ./services/window-managers/spectrwm.nix
+    ./services/window-managers/wayfire.nix
     ./services/window-managers/xmonad.nix
     ./services/wlsunset.nix
     ./services/wob.nix
@@ -405,6 +421,7 @@ let
     ./systemd.nix
     ./targets/darwin
     ./targets/generic-linux.nix
+    ./wayland.nix
     ./xresources.nix
     ./xsession.nix
     ./misc/nix.nix
