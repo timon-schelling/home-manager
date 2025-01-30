@@ -56,7 +56,13 @@ in {
       '';
     };
 
-    package = lib.mkPackageOption pkgs "hyprland" { };
+    package = lib.mkPackageOption pkgs "hyprland" {
+      nullable = true;
+      extraDescription =
+        "Set this to null if you use the NixOS module to install Hyprland.";
+    };
+
+    portalPackage = lib.mkPackageOption pkgs "xdg-desktop-portal-hyprland" { };
 
     finalPackage = lib.mkOption {
       type = lib.types.package;
@@ -66,6 +72,18 @@ in {
         "`wayland.windowManager.hyprland.package` with applied configuration";
       description = ''
         The Hyprland package after applying configuration.
+      '';
+    };
+
+    finalPortalPackage = lib.mkOption {
+      type = lib.types.package;
+      readOnly = true;
+      default = cfg.portalPackage.override { hyprland = cfg.finalPackage; };
+      defaultText = lib.literalMD ''
+        `wayland.windowManager.hyprland.portalPackage` with
+                `wayland.windowManager.hyprland.finalPackage` override'';
+      description = ''
+        The xdg-desktop-portal-hyprland package after overriding its hyprland input.
       '';
     };
 
@@ -220,10 +238,8 @@ in {
         "You have enabled hyprland.systemd.enable or listed plugins in hyprland.plugins but do not have any configuration in hyprland.settings or hyprland.extraConfig. This is almost certainly a mistake.";
     in lib.optional inconsistent warning;
 
-    home.packages = lib.concatLists [
-      (lib.optional (cfg.package != null) cfg.finalPackage)
-      (lib.optional (cfg.xwayland.enable) pkgs.xwayland)
-    ];
+    home.packages = lib.mkIf (cfg.package != null)
+      ([ cfg.finalPackage ] ++ lib.optional cfg.xwayland.enable pkgs.xwayland);
 
     xdg.configFile."hypr/hyprland.conf" = let
       shouldGenerate = cfg.systemd.enable || cfg.extraConfig != ""
@@ -262,6 +278,12 @@ in {
           fi
         )
       '';
+    };
+
+    xdg.portal = {
+      enable = true;
+      extraPortals = [ cfg.finalPortalPackage ];
+      configPackages = lib.mkDefault [ cfg.finalPackage ];
     };
 
     systemd.user.targets.hyprland-session = lib.mkIf cfg.systemd.enable {

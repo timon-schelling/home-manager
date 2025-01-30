@@ -79,6 +79,12 @@
     github = "considerate";
     githubId = 217918;
   };
+  damidoug = {
+    email = "contact@damidoug.dev";
+    github = "damidoug";
+    githubId = 75175586;
+    name = "Douglas Damiano";
+  };
   danjujan = {
     name = "Jan Schmitz";
     email = "44864658+danjujan@users.noreply.github.com";
@@ -640,5 +646,11 @@
     email = "NicholasACiechanowski@gmail.com";
     github = "ALameLlama";
     githubId = 55490546;
+  };
+  ckgxrg = {
+    name = "ckgxrg";
+    email = "ckgxrg@ckgxrg.io";
+    github = "ckgxrg-salt";
+    githubId = 165614491;
   };
 }

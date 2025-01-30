@@ -181,6 +181,7 @@ in import nmtSrc {
     ./modules/xresources
   ] ++ lib.optionals isDarwin [
     ./modules/launchd
+    ./modules/programs/aerospace
     ./modules/services/emacs-darwin
     ./modules/services/espanso-darwin
     ./modules/services/git-sync-darwin
@@ -267,6 +268,7 @@ in import nmtSrc {
     ./modules/services/imapnotify
     ./modules/services/kanshi
     ./modules/services/lieer
+    ./modules/services/linux-wallpaperengine
     ./modules/services/mopidy
     ./modules/services/mpd
     ./modules/services/mpd-mpris
